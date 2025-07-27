@@ -14,3 +14,9 @@ sudo apt install -f
 # зададим alias
 alias gmx='singularity run -B $(pwd) --nv /path/to/sif_file'
 ```
+## Перенос протона в малоновом альдегиде
+- Создадим бокс с альдегидом и добавим воду
+```
+gmx editconf -f mal -o box -d 0.7 -bt cubic
+gmx solvate -cp box -cs -o solv -p mal
+```
