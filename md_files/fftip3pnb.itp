@@ -1,0 +1,9 @@
+
+[ atomtypes ]
+;name           mass         charge     ptype           sigma        epsilon
+    OW   8    16.00000       -0.83400         A    3.15076e-01    6.35968e-01 
+    HW   1     1.00800        0.41700         A    0.00000e+00    0.00000e+00
+
+
+
+
