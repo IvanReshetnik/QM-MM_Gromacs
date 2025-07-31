@@ -22,4 +22,17 @@ gmx solvate -cp box -cs -o solv -p ./md_files/mal
 - Минимизируем энергию
 ```
 gmx grompp -f ./md_files/em.mdp -c solv -p ./md_files/mal.top -o em -maxwarn 1
-``` 
+```
+- Уравновесим систему
+```
+gmx grompp -f ./md-files/nvt.mdp -c em -r em -p ./md-files/mal -o nvt
+gmx mdrun -v -deffnm nvt
+gmx grompp -f ./md-files/npt.mdp -c nvt -r nvt -t nvt -p mal -o npt
+gmx mdrun -v -deffnm npt
+```
+- Запустим симуляцию MD
+```
+gmx grompp -f qmmm.mdp -c npt -p mal -o qmmm -maxwarn 1
+gmx mdrun -v -deffnm qmmm
+```
+
