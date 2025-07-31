@@ -1,4 +1,3 @@
-; RUN CONTROL PARAMETERS
 integrator               = md
 tinit                    = 0
 dt                       = 0.0005
@@ -7,38 +6,32 @@ comm-mode                = Linear
 comm-grps                = System
 nstcomm                  = 20
 
-; OUTPUT CONTROL OPTIONS
 nstxout                  = 0
 nstxtcout                = 20
 xtc_grps                 = MAL
 nstvout                  = 0
 nstfout                  = 0
-; Output frequency for energies to log file and energy file
 nstlog                   = 20
 nstenergy                = 20
 
-; NEIGHBORSEARCHING PARAMETERS
 cutoff-scheme            = Verlet
 nstlist                  = 20
 ns_type                  = grid
 pbc                      = xyz
 rlist                    = 1.0
 
-; OPTIONS FOR ELECTROSTATICS AND VDW
 coulombtype              = PME
-rcoulomb                 = 1.0
+rcoulomb                 = 0.9
 vdwtype                  = Cut-off
-rvdw                     = 1.0
+rvdw                     = 0.9
 DispCorr                 = No
 
-; OPTIONS FOR WEAK COUPLING ALGORITHMS
 Tcoupl                   = Nose-Hoover
 tc-grps                  = System
 tau-t                    = 0.5
 ref-t                    = 300.
 nsttcouple               = 1
 
-; Pressure coupling     
 Pcoupl                   = Parrinello-Rahman
 tau-p                    = 0.5
 compressibility          = 4.5e-5
@@ -46,16 +39,13 @@ ref-p                    = 1.
 refcoord-scaling         = all
 nstpcouple               = 1
 
-; OPTIONS FOR QMMM calculations
 QMMM                     = yes
 QMMM-grps                = MAL
 QMmethod                 = RHF
-QMMMscheme               = normal
 QMbasis                  = STO-3G
 QMcharge                 = 0
 QMmult                   = 1
 MMChargeScaleFactor      = 1
 
-; OPTIONS FOR BONDS    
 constraints              = none
 
